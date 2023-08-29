@@ -21,17 +21,17 @@ namespace CoreWebApi.Controllers
         //{
         //    _amazonSQS = amazonSQS;
         //}
-       // [HttpGet]
+        // [HttpGet]
         //public IEnumerable<Employee> Get()
         //{
         //    var request = new ReceiveMessageRequest
         //    {
         //        // MessageBody = JsonSerializer.Serialize(emp),
-               
+
         //        MaxNumberOfMessages= 10,
         //        WaitTimeSeconds=10,
-                
-            
+
+
         //        QueueUrl = "https://sqs.us-east-1.amazonaws.com/754030919443/myqueue"
         //    };
         //    var req= _amazonSQS.ReceiveMessageAsync(request).Result;
@@ -43,7 +43,7 @@ namespace CoreWebApi.Controllers
         //    }
 
         //    return emplist;
-            
+
         //}
         //[HttpPost]
         //public IActionResult Post(Employee emp)
@@ -58,10 +58,12 @@ namespace CoreWebApi.Controllers
 
 
         //}
+        // key : AKIA27D56X4JQ2SXJQAY
+        // accesskey : Z1MbR6JfLvrrRGo3fKnwqz1L/IrZPY8XgHxXnjtP
         [HttpPost]
         public IActionResult Post(Employee emp)
         {
-            var credentials = new BasicAWSCredentials("AKIA27D56X4JQ2SXJQAY", "Z1MbR6JfLvrrRGo3fKnwqz1L/IrZPY8XgHxXnjtP");
+            var credentials = new BasicAWSCredentials("", "");
             var client=new AmazonSQSClient(credentials,RegionEndpoint.USEast1);
 
             var request = new SendMessageRequest
@@ -77,7 +79,7 @@ namespace CoreWebApi.Controllers
         [HttpGet]
         public IEnumerable<Employee> Get()
         {
-            var credentials = new BasicAWSCredentials("AKIA27D56X4JQ2SXJQAY", "Z1MbR6JfLvrrRGo3fKnwqz1L/IrZPY8XgHxXnjtP");
+            var credentials = new BasicAWSCredentials("", "");
             var client = new AmazonSQSClient(credentials, RegionEndpoint.USEast1);
 
             var request = new ReceiveMessageRequest

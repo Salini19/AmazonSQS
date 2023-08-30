@@ -9,7 +9,7 @@
     "package-type"         : "Zip",
     "function-handler"     : "CoreWebApi",
     "function-memory-size" : 256,
-    "function-role"        : "arn:aws:iam::754030919443:role/lambda_exec_FirstNetCore",
+  
     "function-timeout"     : 10,
     "function-runtime"     : "dotnet6",
     "function-architecture" : "x86_64",

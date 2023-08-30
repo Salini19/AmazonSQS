@@ -32,7 +32,7 @@ namespace CoreWebApi.Controllers
         //        WaitTimeSeconds=10,
 
 
-        //        QueueUrl = "https://sqs.us-east-1.amazonaws.com/754030919443/myqueue"
+        //        QueueUrl = ""
         //    };
         //    var req= _amazonSQS.ReceiveMessageAsync(request).Result;
         //    var emplist = new List<Employee>();
@@ -51,7 +51,7 @@ namespace CoreWebApi.Controllers
         //    var request = new SendMessageRequest
         //    {
         //        MessageBody = JsonSerializer.Serialize(emp),
-        //        QueueUrl = "https://sqs.us-east-1.amazonaws.com/754030919443/myqueue"
+        //        QueueUrl = ""
         //    };
         //    _amazonSQS.SendMessageAsync(request).Wait();
         //    return NoContent(); 
@@ -70,7 +70,7 @@ namespace CoreWebApi.Controllers
             {
                 
                 MessageBody = JsonSerializer.Serialize(emp),
-                QueueUrl = "https://sqs.us-east-1.amazonaws.com/754030919443/myqueue"
+                QueueUrl = ""
             };
             client.SendMessageAsync(request).Wait();
             return NoContent();
@@ -88,7 +88,7 @@ namespace CoreWebApi.Controllers
 
                 MaxNumberOfMessages = 10,
                 WaitTimeSeconds = 10,
-                QueueUrl = "https://sqs.us-east-1.amazonaws.com/754030919443/myqueue"
+                QueueUrl = ""
             };
             var req = client.ReceiveMessageAsync(request).Result;
            var emplist = new List<Employee>();

@@ -58,17 +58,16 @@ namespace CoreWebApi.Controllers
 
 
         //}
-        // key : AKIA27D56X4JQ2SXJQAY
-        // accesskey : Z1MbR6JfLvrrRGo3fKnwqz1L/IrZPY8XgHxXnjtP
+      
         [HttpPost]
         public IActionResult Post(Employee emp)
         {
             var credentials = new BasicAWSCredentials("", "");
-            var client=new AmazonSQSClient(credentials,RegionEndpoint.USEast1);
+            var client = new AmazonSQSClient(credentials, RegionEndpoint.USEast1);
 
             var request = new SendMessageRequest
             {
-                
+
                 MessageBody = JsonSerializer.Serialize(emp),
                 QueueUrl = ""
             };
@@ -91,10 +90,10 @@ namespace CoreWebApi.Controllers
                 QueueUrl = ""
             };
             var req = client.ReceiveMessageAsync(request).Result;
-           var emplist = new List<Employee>();
+            var emplist = new List<Employee>();
             foreach (var item in req.Messages)
             {
-                var m= JsonSerializer.Deserialize<Employee>(item.Body);
+                var m = JsonSerializer.Deserialize<Employee>(item.Body);
                 emplist.Add(m);
 
             }
